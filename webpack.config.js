@@ -1,16 +1,15 @@
-const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const __DEV__ = process.env.NODE_ENV !== "production";
-
 module.exports = {
-  mode: __DEV__ ? "development" : "production",
+  // For this investigation, we're only interested
+  //  in the production output, so we use
+  //  production mode and turn source mapping off
+  mode: "production",
+  devtool: false,
+
   entry: {
     app: "./src/index.jsx",
-  },
-  devServer: {
-    hot: true,
   },
   module: {
     rules: [
@@ -23,9 +22,6 @@ module.exports = {
           },
           {
             loader: "@linaria/webpack-loader",
-            options: {
-              sourceMap: __DEV__,
-            },
           },
         ],
       },
@@ -35,9 +31,6 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
-            options: {
-              sourceMap: __DEV__,
-            },
           },
         ],
       },
@@ -48,9 +41,7 @@ module.exports = {
       template: "src/index.html",
     }),
     new MiniCssExtractPlugin({
-      filename: __DEV__ ? "[name].css" : "[name].[contenthash].css",
-      chunkFilename: __DEV__ ? "[id].css" : "[id].[contenthash].css",
+      filename: "styles.css",
     }),
-    __DEV__ && new webpack.HotModuleReplacementPlugin(),
-  ].filter(Boolean),
+  ],
 };

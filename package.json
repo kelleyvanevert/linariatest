@@ -2,10 +2,10 @@
   "name": "linariatest",
   "version": "1.0.0",
   "license": "MIT",
-  "browserslist": "ie 10, ie 11",
+  "browserslist": "ie 10",
   "scripts": {
     "start": "webpack serve",
-    "build": "NODE_ENV=production webpack"
+    "build": "webpack"
   },
   "dependencies": {
     "@linaria/core": "^3.0.0-beta.1",

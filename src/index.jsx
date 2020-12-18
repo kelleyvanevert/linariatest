@@ -1,12 +1,12 @@
 import { render } from "react-dom";
-import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
 
 function App() {
-  return <div className={_app}>Hello there!!</div>;
+  return <Container>Hello there!!</Container>;
 }
 
-const _app = css`
-  font-weight: bold;
+const Container = styled.div`
+  text-transform: uppercase;
   color: rebeccapurple;
 `;
 

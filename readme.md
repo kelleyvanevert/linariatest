@@ -12,4 +12,6 @@ Figuring out an IE dev-time issue with Linaria...
 
     Hopefully there's some way I can fix this! I'd love to use Linaria in production..
 
+    **EDIT -- it seems I'm confused, Linaria's runtime code can get correctly transpiled along**, as I can see with my app's production setup (a heavily customized CRA and workspaced setup). Not really sure how to get it working in this miniature situation tho 🤔
+
 ![](./ie_syntax_errors_cause.png)
